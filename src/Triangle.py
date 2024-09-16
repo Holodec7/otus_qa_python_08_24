@@ -1,9 +1,11 @@
 from math import sqrt
-from Figure import Figure
+from src.Figure import Figure
 
 
 class Triangle(Figure):
     def __init__(self, side_a, side_b, side_c):
+        if (not isinstance(side_a, (int, float)) or not isinstance(side_b, (int, float)) or not isinstance(side_c, (int, float))):
+            raise ValueError("Rectangle sides should be numbers")
         if not (side_a < side_b + side_c and side_b < side_a + side_c and side_c < side_a + side_b):
             raise ValueError("You can not form a valid triangle from the given sides")
         if side_a <= 0 or side_b <= 0 or side_c <= 0:
