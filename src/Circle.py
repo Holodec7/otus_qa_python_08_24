@@ -1,8 +1,10 @@
-from Figure import Figure
+from src.Figure import Figure
 
 
 class Circle(Figure):
     def __init__(self, radius):
+        if not isinstance(radius, (int, float)):
+            raise ValueError("Radious should be a number")
         if radius <=0:
             raise ValueError("A circle with this radius does not exist")
         self.radius = radius
